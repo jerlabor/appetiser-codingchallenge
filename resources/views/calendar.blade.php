@@ -19,8 +19,8 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-4">
-                        <form @submit.prevent="submit">
+                    <div class="col-12 col-md-4 mb-3">
+                        <form @submit.prevent="submit" class="mb-sm-4">
                             <div class="mb-3">
                                 <label for="event" class="form-label">Event</label>
                                 <input type="text" class="form-control" name="event" id="event" placeholder="Enter event" required>
@@ -45,10 +45,12 @@
                                     <label class="form-check-label" :for="day">@{{day.substring(0,3)}}</label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary mt-2" :disabled="isProcessing" v-html="isProcessing ? loaderHtml : 'Save'"></button>
+                            <div class="d-grid gap-2 col-md-2 col-sm-12 mt-3">
+                                <button type="submit" class="btn btn-primary" :disabled="isProcessing" v-html="isProcessing ? loaderHtml : 'Save'"></button>
+                            </div>
                         </form>
                     </div>
-                    <div class="col-8" v-if="paginatedDates.length > 0">
+                    <div class="col-12 col-md-8" v-if="paginatedDates.length > 0">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item fw-bold fs-3">@{{calendarTitle}}</li>
                             <li class="list-group-item d-flex flex-row"
